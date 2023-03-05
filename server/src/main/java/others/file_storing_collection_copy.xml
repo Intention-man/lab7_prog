@@ -1,0 +1,123 @@
+<movies initializationDate="2023-02-14 17:28:26.973 MSK">
+   <moviesList>
+      <movie>
+         <id>3</id>
+         <name>dsfgf</name>
+         <coordinates>
+            <coordX>124</coordX>
+            <coordY>374</coordY>
+         </coordinates>
+         <creationDate>2023-02-14 20:45:46.929 MSK</creationDate>
+         <oscarsCount>8908436</oscarsCount>
+         <length>89235</length>
+         <operator>
+            <name>djsifjo 91240</name>
+            <passportID>123456789</passportID>
+            <location/>
+         </operator>
+      </movie>
+      <movie>
+         <id>1</id>
+         <name>Название 1</name>
+         <coordinates>
+            <coordX>-310</coordX>
+            <coordY>162478</coordY>
+         </coordinates>
+         <creationDate>2023-02-14 19:11:52.357 MSK</creationDate>
+         <oscarsCount>6128570431678</oscarsCount>
+         <length>100</length>
+         <genre>ADVENTURE</genre>
+         <mpaaRating>G</mpaaRating>
+         <operator>
+            <name>Алина</name>
+            <passportID>6239 567890</passportID>
+            <nationality class="server.enums.Country">FRANCE</nationality>
+            <location>
+               <locX class="java.lang.Long">194</locX>
+               <locY class="java.lang.Long">-1248</locY>
+               <locZ class="java.lang.Double">0.99</locZ>
+            </location>
+         </operator>
+      </movie>
+      <movie>
+         <id>5</id>
+         <name>Название 1</name>
+         <coordinates>
+            <coordX>-310</coordX>
+            <coordY>162478</coordY>
+         </coordinates>
+         <creationDate>2023-02-15 12:30:44.49 MSK</creationDate>
+         <oscarsCount>6128570431678</oscarsCount>
+         <length>100</length>
+         <genre>ADVENTURE</genre>
+         <mpaaRating>G</mpaaRating>
+         <operator>
+            <name>Алина</name>
+            <passportID>6239 567890</passportID>
+            <nationality class="server.enums.Country">FRANCE</nationality>
+            <location>
+               <locX class="java.lang.Long">194</locX>
+               <locY class="java.lang.Long">-1248</locY>
+               <locZ class="java.lang.Double">0.99</locZ>
+            </location>
+         </operator>
+      </movie>
+      <movie>
+         <id>0</id>
+         <name>dsijg</name>
+         <coordinates>
+            <coordX>18923</coordX>
+            <coordY>3426</coordY>
+         </coordinates>
+         <creationDate>2023-02-14 17:28:41.569 MSK</creationDate>
+         <oscarsCount>93045</oscarsCount>
+         <length>9043</length>
+         <genre>WESTERN</genre>
+         <mpaaRating>R</mpaaRating>
+         <operator>
+            <name>Иван</name>
+            <passportID>1234 972308</passportID>
+            <location/>
+         </operator>
+      </movie>
+      <movie>
+         <id>2</id>
+         <name>Фильм!</name>
+         <coordinates>
+            <coordX>-89</coordX>
+            <coordY>1239</coordY>
+         </coordinates>
+         <creationDate>2023-02-14 19:22:02.664 MSK</creationDate>
+         <oscarsCount>1</oscarsCount>
+         <length>180021478923590</length>
+         <genre>TRAGEDY</genre>
+         <operator>
+            <name>Чел</name>
+            <passportID>1029овьй00912к</passportID>
+            <location/>
+         </operator>
+      </movie>
+      <movie>
+         <id>4</id>
+         <name>Короткий фильм</name>
+         <coordinates>
+            <coordX>78</coordX>
+            <coordY>-829</coordY>
+         </coordinates>
+         <creationDate>2023-02-15 10:04:53.721 MSK</creationDate>
+         <oscarsCount>238</oscarsCount>
+         <length>50</length>
+         <genre>WESTERN</genre>
+         <mpaaRating>R</mpaaRating>
+         <operator>
+            <name>Алексей</name>
+            <passportID>1694 935891</passportID>
+            <nationality class="server.enums.Country">SOUTH_KOREA</nationality>
+            <location>
+               <locX class="java.lang.Long">100</locX>
+               <locZ class="java.lang.Double">0.0</locZ>
+            </location>
+         </operator>
+      </movie>
+   </moviesList>
+</movies>

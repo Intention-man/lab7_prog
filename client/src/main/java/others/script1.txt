@@ -1,0 +1,102 @@
+info
+add
+Название 1
+-310
+162478
+6128570431678
+100
+ADVENTURE
+G
+Алина
+6239 567890
+FRANCE
+194
+-1248
+0.99
+execute_script C:\Users\Михаил\Documents\ИТ\Актуальные лабы\lab6_prog\script2.txt
+show
+info
+add
+Название 1
+-310
+162478
+6128570431678
+100
+ADVENTURE
+G
+Алина
+6239 567890
+FRANCE
+194
+-1248
+0.99
+execute_script C:\Users\Михаил\Documents\ИТ\Актуальные лабы\lab6_prog\script2.txt
+show
+info
+add
+Название 1
+-310
+162478
+6128570431678
+100
+ADVENTURE
+G
+Алина
+6239 567890
+FRANCE
+194
+-1248
+0.99
+execute_script C:\Users\Михаил\Documents\ИТ\Актуальные лабы\lab6_prog\script2.txt
+show
+info
+add
+Название 1
+-310
+162478
+6128570431678
+100
+ADVENTURE
+G
+Алина
+6239 567890
+FRANCE
+194
+-1248
+0.99
+execute_script C:\Users\Михаил\Documents\ИТ\Актуальные лабы\lab6_prog\script2.txt
+show
+info
+add
+Название 1
+-310
+162478
+6128570431678
+100
+ADVENTURE
+G
+Алина
+6239 567890
+FRANCE
+194
+-1248
+0.99
+execute_script C:\Users\Михаил\Documents\ИТ\Актуальные лабы\lab6_prog\script2.txt
+show
+info
+add
+Название 1
+-310
+162478
+6128570431678
+100
+ADVENTURE
+G
+Алина
+6239 567890
+FRANCE
+194
+-1248
+0.99
+execute_script C:\Users\Михаил\Documents\ИТ\Актуальные лабы\lab6_prog\script2.txt
+show

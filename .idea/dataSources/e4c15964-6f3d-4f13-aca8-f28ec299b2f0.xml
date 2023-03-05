@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="studs@pg">
+  <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.43">
+    <root id="1">
+      <ServerVersion>14.2</ServerVersion>
+      <StartupTime>1660145155</StartupTime>
+    </root>
+    <database id="2" parent="1" name="admin">
+      <ObjectId>16385</ObjectId>
+      <OwnerName>postgres</OwnerName>
+    </database>
+    <database id="3" parent="1" name="postgres">
+      <Comment>default administrative connection database</Comment>
+      <ObjectId>14115</ObjectId>
+      <OwnerName>postgres</OwnerName>
+    </database>
+    <database id="4" parent="1" name="studs">
+      <Current>1</Current>
+      <ObjectId>16461</ObjectId>
+      <OwnerName>postgres</OwnerName>
+    </database>
+    <database id="5" parent="1" name="ucheb">
+      <ObjectId>38980</ObjectId>
+      <OwnerName>ucheb</OwnerName>
+    </database>
+  </database-model>
+</dataSource>

@@ -6,7 +6,7 @@ import java.sql.*;
 import java.util.Properties;
 
 public class DBWorker {
-    private static final String JDBC_DRIVER = "oracle.jdbc.OracleDriver";
+    private static final String JDBC_DRIVER = "org.postgresql.Driver";
     private final String url;
     private final String user;
     private final String password;

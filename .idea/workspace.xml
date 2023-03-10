@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="61974b51-3d42-4871-9961-ec533b1954c2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e4c15964-6f3d-4f13-aca8-f28ec299b2f0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e4c15964-6f3d-4f13-aca8-f28ec299b2f0.xml" afterDir="false" />
+    <list default="true" id="61974b51-3d42-4871-9961-ec533b1954c2" name="Changes" comment="Added JDBC driver dependency">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/functional_classes/database/DBWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/functional_classes/database/DBWorker.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +115,16 @@
       <workItem from="1678000587692" duration="1157000" />
       <workItem from="1678011509265" duration="1870000" />
       <workItem from="1678251302578" duration="3965000" />
+      <workItem from="1678457333114" duration="1530000" />
     </task>
+    <task id="LOCAL-00001" summary="Added JDBC driver dependency">
+      <created>1678457588345</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1678457588345</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -132,6 +140,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added JDBC driver dependency" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added JDBC driver dependency" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

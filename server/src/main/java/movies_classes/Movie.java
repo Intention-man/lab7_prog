@@ -43,11 +43,12 @@ public class Movie implements Serializable {
     private MpaaRating mpaaRating; //Поле может быть null
     @Element(required=false, name="operator")
     private Person operator; //Поле может быть null
+    private String creator; 
 
 
-    public Movie(){}
+//    public Movie(){}
 
-    public Movie(int id, String name, Coordinates coordinates, Date creationDate, long oscarsCount, long length, MovieGenre genre, MpaaRating mpaaRating, Person operator)
+    public Movie(int id, String name, Coordinates coordinates, Date creationDate, long oscarsCount, long length, MovieGenre genre, MpaaRating mpaaRating, Person operator, String creator)
     {
         this.id = id;
         this.name = name;
@@ -58,6 +59,7 @@ public class Movie implements Serializable {
         this.genre = genre;
         this.mpaaRating = mpaaRating;
         this.operator = operator;
+        this.creator = creator;
     }
 
     public Movie(int id, HashMap data)
@@ -75,6 +77,7 @@ public class Movie implements Serializable {
                 new Location((data.get(10) == null ? null : data.get(10)),
                         (data.get(11) == null ? null : data.get(11)),
                         (data.get(12) == null ? null : data.get(12))));
+        this.creator = creator;
     }
 
     public void update(HashMap data){
@@ -102,6 +105,26 @@ public class Movie implements Serializable {
         return name;
     }
 
+    public Coordinates getCoordinates() {
+        return coordinates;
+    }
+
+    public Date getCreationDate() {
+        return creationDate;
+    }
+
+    public MovieGenre getGenre() {
+        return genre;
+    }
+
+    public MpaaRating getMpaaRating() {
+        return mpaaRating;
+    }
+
+    public Person getOperator() {
+        return operator;
+    }
+
     public long getLength() {
         return length;
     }
@@ -110,12 +133,16 @@ public class Movie implements Serializable {
         return oscarsCount;
     }
 
+    public String getCreator() {
+        return creator;
+    }
+
     public String[] getInstance() {
         return new String[]{"id: " + id, "name: " + name, "coordinates:", "[x:" +
                 coordinates.getCoordX(), "y: " + coordinates.getCoordY() + "], ", "creationDate: " + creationDate,
                 "oscarsCount: " + oscarsCount, "length: " + length, "genre: " + genre, "mpaaRating: " + mpaaRating,
                 "operator: [", "name: " + operator.getName(), "passportID: " + operator.getPassportID(),
                 "nationality: " + operator.getNationality(), "location: ", "[x: " + operator.getLocation().getLocX(),
-                "y: " + operator.getLocation().getLocY(), "z: " + operator.getLocation().getLocZ() + "]"};
+                "y: " + operator.getLocation().getLocY(), "z: " + operator.getLocation().getLocZ() + "] " + "login: " + creator};
     }
 }

@@ -28,7 +28,7 @@ public class Writer {
         commandList.put("count_by_oscars_count oscarsCount", "вывести количество элементов, значение поля oscarsCount которых равно заданному");}
 
     public void suggestNewAction() {
-        System.out.println("Введите команду. Чтобы узнать перечень доступных команд ввелите help");
+        System.out.println("Введите команду, ваш логин и пароль через пробелы. Чтобы узнать перечень доступных команд введите help");
     }
 
     public <T> void printResponse(ResponseMessage response) {
@@ -40,7 +40,10 @@ public class Writer {
         } else {
             if (Objects.equals(response.getResponseData(), true)) {
                 System.out.println("Действие успешно выполненно");
-            } else {
+            } else if (Objects.equals(response.getResponseData(), false)){
+                System.out.println("Что-то пошло не так");
+            }
+            else {
                 System.out.println(response.getResponseData());
             }
         }

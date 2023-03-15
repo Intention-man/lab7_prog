@@ -5,17 +5,21 @@ import exceptions.DatabaseException;
 import java.sql.*;
 import java.util.Properties;
 
-public class DBWorker {
+public class DBConnector {
     private static final String JDBC_DRIVER = "org.postgresql.Driver";
     private final String url;
     private final String user;
     private final String password;
     Connection connection;
+    Statement stat;
+    DBCollectionHandler dbCollectionHandler;
+    DBUserHandler dbUserHandler;
 
-    public DBWorker(Properties properties){
+    public DBConnector(Properties properties){
         this.url = properties.getProperty("url");
         this.user = properties.getProperty("user");
         this.password = properties.getProperty("password");
+        System.out.println(url + user + password);
     }
 
     public void createConnection() throws DatabaseException {
@@ -28,20 +32,25 @@ public class DBWorker {
             throw new DatabaseException("error during connection to database");
         }
         catch (ClassNotFoundException exception) {
-//            throw new DatabaseException("data driver not found");
             System.out.println(exception);
+            throw new DatabaseException("data driver not found");
+
         }
     }
 
-    public void executeQuery() throws SQLException {
-        Statement stat = connection.createStatement();
-        ResultSet res = stat.executeQuery("SELECT * from cars");
-        System.out.println(res);
-        while (res.next()) {
-            // получение и обработка данных
-        }
-        res.close();
-        stat.close();
+    public Connection getConnection() {
+        return connection;
+    }
+
+//    public boolean tryAuthorization(String login, String password) throws SQLException {
+//        return dbUserHandler.isUserExist(login, password);
+//    }
+
+//    public String tryRegistration(String login, String password) throws SQLException {
+//        return dbUserHandler.registration(login, password);
+//    }
+
+    public void close() throws SQLException {
         connection.close();
     }
 }

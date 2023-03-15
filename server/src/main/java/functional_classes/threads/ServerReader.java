@@ -17,10 +17,16 @@ public class ServerReader {
     }
 
     public void readConsole() {
+        System.out.println("readConsole " + Thread.currentThread());
         if (chosenScanner.hasNextLine()) {
-            if (chosenScanner.nextLine().trim().equals("exit")) {
-                Movies result = commandDistributor.execution(new CommandMessage<>("CollectionWorker", "getMovies", null));
-                boolean isSaved = commandDistributor.execution(new CommandMessage<>("FileWorker", "save", result));
+            String clientInput = chosenScanner.nextLine().trim();
+            String[] splitedClientInput = clientInput.replaceAll("\\s+", " ").split(" ");
+            String executedCommand = splitedClientInput[0];
+            String login = splitedClientInput[1];
+            String password = splitedClientInput[2];
+            if (executedCommand.equals("exit")) {
+                Movies result = commandDistributor.execution(new CommandMessage<>("CollectionWorker", "getMovies", null, login, password));
+                boolean isSaved = commandDistributor.execution(new CommandMessage<>("FileWorker", "save", result, login, password));
                 System.out.println(isSaved ? "Коллекция успешно сохранена!" : "Что-то пошло не так, коллекция не сохранена...");
                 System.exit(0);
             }

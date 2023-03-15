@@ -7,6 +7,6 @@ public class Synchronizer {
     }
 
     public void clientChannelThread(ServerSerializer serverSerializer) throws InterruptedException {
-        serverSerializer.correspondeWithClient();
+        serverSerializer.waitForRequest();
     }
 }

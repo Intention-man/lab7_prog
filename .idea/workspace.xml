@@ -5,8 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="61974b51-3d42-4871-9961-ec533b1954c2" name="Changes" comment="Added JDBC driver dependency">
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/functional_classes/database/ContainerCommonParts.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/functional_classes/database/DBCollectionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/functional_classes/database/DBUserHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e4c15964-6f3d-4f13-aca8-f28ec299b2f0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e4c15964-6f3d-4f13-aca8-f28ec299b2f0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/functional_classes/database/DBWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/functional_classes/database/DBWorker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/functional_classes/ClientManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/functional_classes/ClientManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/functional_classes/ClientSerializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/functional_classes/ClientSerializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/functional_classes/Writer.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/functional_classes/Writer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/others/script1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/others/script1.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/auxiliary_classes/CommandMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/auxiliary_classes/CommandMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/META-INF/services/java.sql.Driver" beforeDir="false" afterPath="$PROJECT_DIR$/server/META-INF/services/java.sql.Driver" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/functional_classes/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/functional_classes/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/functional_classes/commands_executors/CollectionWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/functional_classes/commands_executors/CollectionAnalyzer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/functional_classes/commands_executors/CommandDistributor.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/functional_classes/commands_executors/CommandDistributor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/functional_classes/database/DBWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/functional_classes/database/DBConnector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/functional_classes/threads/ServerReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/functional_classes/threads/ServerReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/functional_classes/threads/ServerSerializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/functional_classes/threads/ServerSerializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/functional_classes/threads/Synchronizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/functional_classes/threads/Synchronizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/movies_classes/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/movies_classes/Movie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/movies_classes/Movies.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/movies_classes/Movies.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +76,9 @@
   &quot;keyToStringList&quot;: {
     &quot;DatabaseDriversLRU&quot;: [
       &quot;postgresql&quot;
+    ],
+    &quot;com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect&quot;: [
+      &quot;PostgreSQL&quot;
     ]
   }
 }</component>
@@ -69,8 +93,8 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
-    <configuration name="ClientMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.ClientMain">
+    <configuration name="ClientMain" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ClientMain" />
       <module name="client" />
       <method v="2">
@@ -91,6 +115,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.ClientMain" />
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Application.Printer" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
@@ -116,6 +145,14 @@
       <workItem from="1678011509265" duration="1870000" />
       <workItem from="1678251302578" duration="3965000" />
       <workItem from="1678457333114" duration="1530000" />
+      <workItem from="1678461559479" duration="636000" />
+      <workItem from="1678550510359" duration="1228000" />
+      <workItem from="1678600964961" duration="11256000" />
+      <workItem from="1678690667481" duration="20958000" />
+      <workItem from="1678770817287" duration="12449000" />
+      <workItem from="1678794910310" duration="7805000" />
+      <workItem from="1678855930717" duration="3086000" />
+      <workItem from="1678863853594" duration="836000" />
     </task>
     <task id="LOCAL-00001" summary="Added JDBC driver dependency">
       <created>1678457588345</created>
@@ -124,7 +161,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678457588345</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added JDBC driver dependency">
+      <created>1678461580809</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1678461580809</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

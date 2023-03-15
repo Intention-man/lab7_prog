@@ -20,15 +20,19 @@ import java.util.stream.Collectors;
 public class Movies implements Serializable {
 
     @ElementList(name="moviesList")
-    private HashSet<Movie> moviesList = new HashSet<>();
+    private HashSet<Movie> moviesList;
     @Attribute
     private Date initializationDate;
-
 
 
     public Movies(){
         this.initializationDate = new Date();
     }
+
+    public void setMoviesList(HashSet<Movie> moviesList){
+        this.moviesList = moviesList;
+    }
+
     public int moviesCount(){
         return moviesList.size();
     }

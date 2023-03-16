@@ -5,10 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="61974b51-3d42-4871-9961-ec533b1954c2" name="Changes" comment="Most necessary have done">
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/exceptions/AuthorizationException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/exceptions/MessageFormatException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/functional_classes/ClientManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/functional_classes/ClientManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/functional_classes/ClientSerializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/functional_classes/ClientSerializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/others/script1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/others/script1.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/others/script2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/others/script2.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/auxiliary_classes/CommandMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/auxiliary_classes/CommandMessage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/functional_classes/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/functional_classes/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/functional_classes/database/DBCollectionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/functional_classes/database/DBCollectionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/functional_classes/commands_executors/CollectionAnalyzer.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/functional_classes/commands_executors/CollectionAnalyzer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/functional_classes/commands_executors/CommandDistributor.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/functional_classes/commands_executors/CommandDistributor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/functional_classes/database/DBConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/functional_classes/database/DBConnector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/functional_classes/database/DBUserHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/functional_classes/database/DBUserHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/functional_classes/threads/ServerReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/functional_classes/threads/ServerReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/functional_classes/threads/ServerSerializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/functional_classes/threads/ServerSerializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/functional_classes/threads/Synchronizer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/movies_classes/Coordinates.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/movies_classes/Coordinates.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/movies_classes/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/movies_classes/Location.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/movies_classes/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/movies_classes/Movie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/movies_classes/Movies.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/movies_classes/Movies.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/movies_classes/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/movies_classes/Person.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +62,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;ToolWindowRun.ShowToolbar&quot;: &quot;false&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;19&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/Михаил/Documents/ИТ/Актуальные лабы/lab7_prog_copy&quot;,
@@ -103,8 +121,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
         <item itemvalue="Application.ClientMain" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.Printer" />
       </list>
     </recent_temporary>
@@ -133,7 +151,16 @@
       <workItem from="1678770817287" duration="12449000" />
       <workItem from="1678794910310" duration="7805000" />
       <workItem from="1678855930717" duration="3086000" />
-      <workItem from="1678863853594" duration="2731000" />
+      <workItem from="1678863853594" duration="8824000" />
+      <workItem from="1678873021678" duration="2107000" />
+      <workItem from="1678875192795" duration="708000" />
+      <workItem from="1678880224901" duration="1994000" />
+      <workItem from="1678889283760" duration="4604000" />
+      <workItem from="1678893999963" duration="1425000" />
+      <workItem from="1678899058935" duration="7748000" />
+      <workItem from="1678949000701" duration="2046000" />
+      <workItem from="1678951191596" duration="802000" />
+      <workItem from="1678952690271" duration="2200000" />
     </task>
     <task id="LOCAL-00001" summary="Added JDBC driver dependency">
       <created>1678457588345</created>
@@ -156,7 +183,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678864803242</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Most necessary have done">
+      <created>1678867226488</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1678867226488</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -178,6 +212,13 @@
     <MESSAGE value="Most of necessary have done" />
     <MESSAGE value="Most necessary have done" />
     <option name="LAST_COMMIT_MESSAGE" value="Most necessary have done" />
+  </component>
+  <component name="XDebuggerManager">
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="auxiliary_classes.ResponseMessage" memberName="typeName" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

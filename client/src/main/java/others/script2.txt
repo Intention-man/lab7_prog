@@ -1,102 +1,17 @@
-info
-add
-Название 1
--310
-162478
-6128570431678
+info 88 88
+add  88 88
+Название 0
+12893
+11
+34578
 100
-ADVENTURE
-G
-Алина
-6239 567890
-FRANCE
-194
--1248
-0.99
-execute_script C:\Users\Михаил\Documents\ИТ\Актуальные лабы\lab6_prog\script1.txt
-show
-info
-add
-Название 1
--310
-162478
-6128570431678
-100
-ADVENTURE
-G
-Алина
-6239 567890
-FRANCE
-194
--1248
-0.99
-execute_script C:\Users\Михаил\Documents\ИТ\Актуальные лабы\lab6_prog\script2.txt
-show
-info
-add
-Название 1
--310
-162478
-6128570431678
-100
-ADVENTURE
-G
-Алина
-6239 567890
-FRANCE
-194
--1248
-0.99
-execute_script C:\Users\Михаил\Documents\ИТ\Актуальные лабы\lab6_prog\script2.txt
-show
-info
-add
-Название 1
--310
-162478
-6128570431678
-100
-ADVENTURE
-G
-Алина
-6239 567890
-FRANCE
-194
--1248
-0.99
-execute_script C:\Users\Михаил\Documents\ИТ\Актуальные лабы\lab6_prog\script2.txt
-show
-info
-add
-Название 1
--310
-162478
-6128570431678
-100
-ADVENTURE
-G
-Алина
-6239 567890
-FRANCE
-194
--1248
-0.99
-execute_script C:\Users\Михаил\Documents\ИТ\Актуальные лабы\lab6_prog\script2.txt
-show
-info
-add
-Название 1
--310
-162478
-6128570431678
-100
-ADVENTURE
-G
-Алина
-6239 567890
-FRANCE
-194
--1248
-0.99
-execute_script C:\Users\Михаил\Documents\ИТ\Актуальные лабы\lab6_prog\script2.txt
-show
+WESTERN
+R
+Екатерина
+2394 438593
+SOUTH_KOREA
+1298
+-8
+1.0001
+execute_script C:\Users\Михаил\Documents\ИТ\Актуальные лабы\maven_project\client\src\main\java\others\script1.txt 88 88
+show 88 88

@@ -1,6 +1,7 @@
 package functional_classes.commands_executors;
 
 import auxiliary_classes.CommandMessage;
+import exceptions.AuthorizationException;
 import functional_classes.database.DBConnector;
 import functional_classes.database.DBUserHandler;
 
@@ -12,7 +13,6 @@ import java.util.Objects;
 
 public class CommandDistributor {
 
-    DBConnector dbConnector;
     private HashMap<String, Object> executors = new HashMap<>();
 
     public <T> void addExecutor(String className, T executor){
@@ -25,16 +25,14 @@ public class CommandDistributor {
         Object o;
         Method methodToInvoke;
         try {
-            Class<?> c = Class.forName("functional_classes." + ((!className.contains(".")) ? ((Objects.equals(className, "CollectionAnalyzer")) ? "commands_executors." + className : "database." + className) : className));
-            boolean letExecute = false;
+            Class<?> c = Class.forName("functional_classes." + ((!className.contains(".")) ? ((Objects.equals(className, "CollectionAnalyzer") || Objects.equals(className, "FileWorker")) ? "commands_executors." + className : "database." + className) : className));
             if (Objects.equals(commandMessage.getCommandName(), "registration")){
-                letExecute = true;
                 methodToInvoke = c.getMethod(commandMessage.getCommandName(), commandMessage.getLogin().getClass(), commandMessage.getPassword().getClass());
-            } else if (((DBUserHandler) executors.get("DBUserHandler")).isUserExist(commandMessage.getLogin(), commandMessage.getPassword())) {
-                letExecute = true;
+            } else if (((DBUserHandler) executors.get("DBUserHandler")).isUserExists(commandMessage.getLogin(), commandMessage.getPassword())) {
                 ((CollectionAnalyzer) executors.get("CollectionAnalyzer")).setCurrentLogin(commandMessage.getLogin());
                 methodToInvoke = (commandMessage.getCommandData() != null ? c.getMethod(commandMessage.getCommandName(), commandMessage.getCommandData().getClass()) : c.getMethod(commandMessage.getCommandName()));
-            } else {return (T) "Неуспешная попытка авторизации. Возможно, ошибка в логине или пароле";}
+            } else {throw new AuthorizationException();
+            }
 
             if (commandMessage.getCommandData() != null) {
                 o = (T) methodToInvoke.invoke(executors.get(className), commandMessage.getCommandData());
@@ -50,11 +48,8 @@ public class CommandDistributor {
             e.printStackTrace();
         } catch (SQLException e) {
             throw new RuntimeException(e);
-        }
+        } catch (AuthorizationException ignored) {}
         return null;
     }
 
-    public void setDbManager(DBConnector dbConnector) {
-        this.dbConnector = dbConnector;
-    }
 }

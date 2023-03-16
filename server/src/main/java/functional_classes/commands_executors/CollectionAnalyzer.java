@@ -76,7 +76,6 @@ public class CollectionAnalyzer {
         } else {
             return response;
         }
-//        System.out.println(movies.getMoviesList());
     }
 
     public boolean clear() throws SQLException {
@@ -104,7 +103,7 @@ public class CollectionAnalyzer {
     }
 
     public List<String> info() {
-        System.out.println(123);
+        System.out.println("info!!!");
         ArrayList<String> answer = new ArrayList<>();
         answer.add("Класс элементов коллекции: " + (movies.getMoviesList().size() > 0 ? movies.getMoviesList().stream().toList().get(0).getClass() : "Movie"));
         answer.add("Дата и время ининциализации коллекции: " + movies.getInitializationDate());
@@ -171,7 +170,7 @@ public class CollectionAnalyzer {
         if (movies.getMoviesList().stream()
                 .anyMatch(movie -> movie.getId() == id)) {
             Movie foundMovie = movies.getMoviesList().stream()
-                    .filter(movie -> movie.getId() == id)
+                     .filter(movie -> movie.getId() == id)
                     .findAny().get();
             Movie newMovie = new Movie(id, data);
             if (Objects.equals(foundMovie.getCreator(), login)) {

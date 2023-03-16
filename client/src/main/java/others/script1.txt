@@ -1,5 +1,6 @@
-info 123 456
-add 123 456
+info 88 88
+execute_script C:\Users\Михаил\Documents\ИТ\Актуальные лабы\maven_project\client\src\main\java\others\script2.txt 88 88
+add 88 88
 Название 1
 -310
 162478
@@ -13,9 +14,9 @@ FRANCE
 194
 -1248
 0.99
-show 123 456
-info  123 456
-add  123 456
+show 88 88
+info  88 88
+add  88 88
 Название 1
 -310
 162478

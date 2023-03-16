@@ -17,7 +17,7 @@ public class ServerReader {
     }
 
     public void readConsole() {
-        System.out.println("readConsole " + Thread.currentThread());
+//        System.out.println("readConsole " + Thread.currentThread());
         if (chosenScanner.hasNextLine()) {
             String clientInput = chosenScanner.nextLine().trim();
             String[] splitedClientInput = clientInput.replaceAll("\\s+", " ").split(" ");
@@ -25,9 +25,9 @@ public class ServerReader {
             String login = splitedClientInput[1];
             String password = splitedClientInput[2];
             if (executedCommand.equals("exit")) {
-                Movies result = commandDistributor.execution(new CommandMessage<>("CollectionWorker", "getMovies", null, login, password));
-                boolean isSaved = commandDistributor.execution(new CommandMessage<>("FileWorker", "save", result, login, password));
-                System.out.println(isSaved ? "Коллекция успешно сохранена!" : "Что-то пошло не так, коллекция не сохранена...");
+                Movies result = commandDistributor.execution(new CommandMessage<>("CollectionAnalyzer", "getMovies", null, login, password));
+//                boolean isSaved = commandDistributor.execution(new CommandMessage<>("FileWorker", "save", result, login, password));
+//                System.out.println(isSaved ? "Коллекция успешно сохранена!" : "Что-то пошло не так, коллекция не сохранена...");
                 System.exit(0);
             }
         }

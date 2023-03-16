@@ -2,11 +2,12 @@ package functional_classes;
 
 import auxiliary_classes.CommandMessage;
 import auxiliary_classes.ResponseMessage;
+import exceptions.MessageFormatException;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Objects;
-
-;
 
 /**
  * Console App Component, responsible for console work and interaction with users
@@ -32,19 +33,22 @@ public class ClientManager {
 
     public void startNewAction(String clientInput) {
         try {
-//            System.out.println("Начата новая команда");
-            String[] splitedClientInput = clientInput.replaceAll("\\s+", " ").split(" ");
-            String executedCommand = splitedClientInput[0];
+            List<String> splitedClientInput = Arrays.asList(clientInput.split("\\s+"));
+            String executedCommand = splitedClientInput.get(0);
             if (Objects.equals(executedCommand, "help")) {
                 writer.help();
             } else {
                 String param = "";
-                if (splitedClientInput.length == 4) {
-                    param = (String) splitedClientInput[1];
+                if (splitedClientInput.size() <= 2) {
+                    throw new MessageFormatException();
                 }
-                String login = splitedClientInput[splitedClientInput.length - 2];
-                String password = splitedClientInput[splitedClientInput.length - 1];
-                System.out.println(executedCommand + " " + login + " " + password);
+                if (splitedClientInput.size() >= 4) {
+                    param = String.join(" ", splitedClientInput.subList(1, splitedClientInput.size() - 2));
+                    System.out.println(param);
+                }
+                String login = splitedClientInput.get(splitedClientInput.size() - 2);
+                String password = splitedClientInput.get(splitedClientInput.size() - 1);
+//                System.out.println(executedCommand + " " + login + " " + password);
                 CommandMessage<Object> commandMessage;
                 commandMessage = new CommandMessage<>("CollectionAnalyzer", "addCommandToHistory", executedCommand, login, password);
                 clientSerializer.send(commandMessage);
@@ -63,7 +67,7 @@ public class ClientManager {
                         writer.printResponse(clientSerializer.send(commandMessage));
                     }
                     case ("clear") -> {
-                        commandMessage = new CommandMessage<>("CollectionAnalyzer", "clear", null, login, password);
+                        commandMessage = new CommandMessage<>("CollectionAnalyzer", "clear", login, password);
                         writer.printResponse(clientSerializer.send(commandMessage));
                     }
                     case ("count_by_oscars_count") -> {
@@ -74,26 +78,26 @@ public class ClientManager {
                             System.out.println("Количество оскаров должно быть целым числом");
                         }
                     }
-                    case ("execute_script") -> clientReader.readFile(executedCommand.substring(15));
+                    case ("execute_script") -> clientReader.readFile(param);
                     case ("history") -> {
-                        commandMessage = new CommandMessage<>("CollectionAnalyzer", "getLast12Commands", null, login, password);
+                        commandMessage = new CommandMessage<>("CollectionAnalyzer", "getLast12Commands", login, password);
                         writer.printResponse(clientSerializer.send(commandMessage));
                     }
                     case ("info") -> {
-                        commandMessage = new CommandMessage<>("CollectionAnalyzer", "info", null, login, password);
+                        commandMessage = new CommandMessage<>("CollectionAnalyzer", "info", login, password);
                         writer.printResponse(clientSerializer.send(commandMessage));
                         System.out.println("Исполняемые в данный момент файлы: " + clientReader.getExecutedFiles());
                     }
                     case ("show") -> {
-                        commandMessage = new CommandMessage<>("CollectionAnalyzer", "show", null, login, password);
+                        commandMessage = new CommandMessage<>("CollectionAnalyzer", "show", login, password);
                         writer.printResponse(clientSerializer.send(commandMessage));
                     }
                     case ("sum_of_length") -> {
-                        commandMessage = new CommandMessage<>("CollectionAnalyzer", "sumOfLength", null, login, password);
+                        commandMessage = new CommandMessage<>("CollectionAnalyzer", "sumOfLength", login, password);
                         writer.printResponse(clientSerializer.send(commandMessage));
                     }
                     case ("registration") -> {
-                        commandMessage = new CommandMessage<Object>("DBUserHandler", "registration", null, login, password);
+                        commandMessage = new CommandMessage<Object>("DBUserHandler", "registration", login, password);
                         ResponseMessage response = clientSerializer.send(commandMessage);
                         writer.printResponse(response);
                     }
@@ -129,8 +133,11 @@ public class ClientManager {
                     default -> System.out.println("Введите команду из доступного перечня");
                 }
             }
+        } catch (NumberFormatException e) {
+            System.out.println("Убедитесь, что ввели команду, числовой аргумент (если он нужен для выполнения этой команды), логин и пароль");
+        } catch (MessageFormatException ignored) {
         } catch (Exception e) {
-            System.out.println(e);
+            System.out.println("Что-то пошло не так. ПРоверьте корректность данных");
         }
     }
 }

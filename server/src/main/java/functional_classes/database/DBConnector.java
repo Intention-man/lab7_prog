@@ -42,14 +42,6 @@ public class DBConnector {
         return connection;
     }
 
-//    public boolean tryAuthorization(String login, String password) throws SQLException {
-//        return dbUserHandler.isUserExist(login, password);
-//    }
-
-//    public String tryRegistration(String login, String password) throws SQLException {
-//        return dbUserHandler.registration(login, password);
-//    }
-
     public void close() throws SQLException {
         connection.close();
     }

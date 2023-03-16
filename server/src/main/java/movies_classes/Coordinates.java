@@ -11,14 +11,12 @@ import java.io.Serializable;
  * */
 
 public class Coordinates implements Serializable {
-    @Element(name="coordX")
     private Integer coordX; //Значение поля должно быть больше -319, Поле не может быть null
-    @Element(name="coordY")
     private int coordY;
 
     public Coordinates(){}
 
-    public Coordinates(@Element(name="coordX") Integer coordX, @Element(name="coordY") int coordY)
+    public Coordinates(Integer coordX, int coordY)
     {
         this.coordX = coordX;
         this.coordY = coordY;

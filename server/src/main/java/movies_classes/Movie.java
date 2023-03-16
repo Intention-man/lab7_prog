@@ -22,26 +22,16 @@ import java.util.HashMap;
  *    @param  {Person operator} operator
  * */
 
-@Root
 public class Movie implements Serializable {
-    @Element(name="id")
     private int id; //Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
-    @Element(name="name")
     private String name; //Поле не может быть null, Строка не может быть пустой
-    @Element(name="coordinates")
     private Coordinates coordinates; //Поле не может быть null
-    @Element(name="creationDate")
     private Date creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
-    @Element(name="oscarsCount")
     private long oscarsCount; //Значение поля должно быть больше 0
-    @Element(name="length")
     private long length; //Значение поля должно быть больше 0
 
-    @Element(required=false, name="genre")
     private MovieGenre genre; //Поле может быть null
-    @Element(required=false, name="mpaaRating")
     private MpaaRating mpaaRating; //Поле может быть null
-    @Element(required=false, name="operator")
     private Person operator; //Поле может быть null
     private String creator; 
 

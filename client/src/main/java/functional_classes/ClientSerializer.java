@@ -35,7 +35,6 @@ public class ClientSerializer {
         try {
             dc = DatagramChannel.open();
             dc.configureBlocking(false);
-
             // byte object formation
             ArrayList<Object> sendingData = new ArrayList<>();
             sendingData.add(commandMessage);
@@ -53,15 +52,17 @@ public class ClientSerializer {
             // space between sending and getting
             byteBAOS = new byte[1024 * 16];
             DatagramPacket packet = new DatagramPacket(byteBAOS, byteBAOS.length);
-            socket.setSoTimeout(5000);
+            socket.setSoTimeout(15000);
             socket.receive(packet);
-
             ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(packet.getData());
-            ObjectInputStream objectInputStream = new ObjectInputStream(byteArrayInputStream);
+
+            byte[] a = byteArrayInputStream.readAllBytes();
+
+            ObjectInputStream objectInputStream = new ObjectInputStream(new ByteArrayInputStream(a));
             ResponseMessage deserializedResponse = (ResponseMessage) objectInputStream.readObject();
             return deserializedResponse;
         } catch (SocketTimeoutException e){
-            System.out.println("Убедитесь, что серверное приложение включено");
+            e.printStackTrace();
         } catch (EOFException e) {
             System.out.println("Канал перегружен. Увеличьте объем буфера либо оптимизируйте скрипт. Некоторые команды могли не выполниться");
         } catch (IOException e) {

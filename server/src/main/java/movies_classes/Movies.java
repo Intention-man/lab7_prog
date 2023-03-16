@@ -1,10 +1,5 @@
 package movies_classes;
 
-
-import org.simpleframework.xml.Attribute;
-import org.simpleframework.xml.ElementList;
-import org.simpleframework.xml.Root;
-
 import java.io.Serializable;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -16,12 +11,10 @@ import java.util.stream.Collectors;
  *    @param  {java.util.Date} initializationDate
  * */
 
-@Root(name="movies")
+
 public class Movies implements Serializable {
 
-    @ElementList(name="moviesList")
     private HashSet<Movie> moviesList;
-    @Attribute
     private Date initializationDate;
 
 
@@ -38,19 +31,25 @@ public class Movies implements Serializable {
     }
 
     public HashSet<Movie> getMoviesList(){
-        return moviesList;
+        synchronized (moviesList) {
+            return moviesList;
+        }
     }
 
     public List<Movie> getSortedMovies(String field) {
         List<Movie> sortedList;
-        sortedList = moviesList.stream()
-                .sorted(Objects.equals(field, "id") ? Comparator.comparing(Movie::getId) : Comparator.comparing(Movie::getName))
-                        .collect(Collectors.toList());
+        synchronized (moviesList) {
+            sortedList = moviesList.stream()
+                    .sorted(Objects.equals(field, "id") ? Comparator.comparing(Movie::getId) : Comparator.comparing(Movie::getName))
+                    .collect(Collectors.toList());
 
-        return sortedList;
+            return sortedList;
+        }
     }
 
     public Date getInitializationDate() {
-        return initializationDate;
+        synchronized (initializationDate) {
+            return initializationDate;
+        }
     }
 }

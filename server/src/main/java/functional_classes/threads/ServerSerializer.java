@@ -9,6 +9,7 @@ import java.net.*;
 import java.nio.ByteBuffer;
 import java.nio.channels.DatagramChannel;
 import java.util.ArrayList;
+import java.util.Objects;
 
 
 public class ServerSerializer {
@@ -22,7 +23,7 @@ public class ServerSerializer {
     CommandDistributor commandDistributor;
     CommandMessage deserializedCommandMessage;
     ResponseMessage<Object> response;
-    private boolean readyToExecute = false;
+    private String stage = "get";
 
 
     public ServerSerializer(CommandDistributor commandDistributor) throws IOException {
@@ -35,45 +36,39 @@ public class ServerSerializer {
 
 
     public void waitForRequest() {
-        System.out.println("waitForRequest " + Thread.currentThread());
         try {
-            while (true) {
+            while (Objects.equals(stage, "get")) {
+                System.out.println("in waitForRequest");
 //                datagramChannel.configureBlocking(false);
-
-                // getting and formalize serialized object
                 socketAddressToGet = datagramChannel.receive(ByteBuffer.wrap(byteCommandMessage));
                 if (socketAddressToGet != null) {
                     System.out.println("got message");
                     ByteArrayInputStream bis = new ByteArrayInputStream(byteCommandMessage);
                     ObjectInputStream ois = new ObjectInputStream(bis);
                     ArrayList<Object> deserializedData = (ArrayList<Object>) ois.readObject();
-//                CommandMessage deserializedCommandMessage = (CommandMessage)
-                    CommandMessage deserializedCommandMessage = (CommandMessage) deserializedData.get(0);
+                    deserializedCommandMessage = (CommandMessage) deserializedData.get(0);
                     clientPort = (Integer) deserializedData.get(1);
-                    this.deserializedCommandMessage = deserializedCommandMessage;
-                    readyToExecute = true;
-                    System.out.println("finish getting and formalize");
-                    break;
+                    System.out.println("deserializedCommandMessage: " + deserializedCommandMessage);
+                    stage = "execute";
                 }
             }
-        } catch (ClassNotFoundException | IOException e) {
+        }
+        catch (ClassCastException e) {
+            System.out.println("Неверный тип полученных данных. Убедитесь, что сообщение с клиента приводится к классу CommandMessage");
+        }catch (ClassNotFoundException | IOException e) {
             throw new RuntimeException(e);
-        } finally {
-            socketToSend.close();
         }
     }
 
     public void executeCommand() {
-        System.out.println("executeCommand " + Thread.currentThread());
         // command execution
-
         Object result = commandDistributor.execution(deserializedCommandMessage);
         assert result != null;
         response = new ResponseMessage<>(result.getClass().getName(), result);
+        stage = "send";
     }
 
     public void sendResponse() throws IOException {
-        System.out.println("waitForRequest " + Thread.currentThread());
         // sending
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
@@ -81,12 +76,13 @@ public class ServerSerializer {
         byte[] byteBAOS = byteArrayOutputStream.toByteArray();
         host = InetAddress.getByName("localhost");
         DatagramPacket packet = new DatagramPacket(byteBAOS, byteBAOS.length, host, clientPort);
+        stage = "get";
         socketToSend.send(packet);
-        readyToExecute = false;
+//        socketToSend.close();
     }
 
-    public boolean getReadyToExecute(){
-        return readyToExecute;
+    public String getStage() {
+        return stage;
     }
 
     public void close() throws IOException {

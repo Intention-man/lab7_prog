@@ -17,6 +17,10 @@ public class CommandMessage<T> implements Serializable {
         this.password = password;
     }
 
+    public CommandMessage(String classname, String commandName, String login, String password) {
+        this(classname, commandName, null, login, password);
+    }
+
     public String getClassname() {
         return classname;
     }

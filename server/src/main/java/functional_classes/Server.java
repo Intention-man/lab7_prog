@@ -8,8 +8,10 @@ import functional_classes.database.DBUserHandler;
 import functional_classes.threads.ServerReader;
 import functional_classes.threads.ServerSerializer;
 import movies_classes.Movies;
+import org.postgresql.util.PSQLException;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Objects;
 import java.util.Properties;
 import java.util.concurrent.*;
@@ -18,6 +20,11 @@ public class Server {
     private final Properties properties;
     static ExecutorService executor = Executors.newFixedThreadPool(1); // Создаем пул из 1 потока
     static ForkJoinPool forkJoinPool = new ForkJoinPool(); // Создаем пул для многопоточной отправки ответ
+    DBConnector dbConnector;
+    DBCollectionHandler dbCollectionHandler;
+    DBUserHandler dbUserHandler;
+    ServerSerializer serverSerializer;
+
 
     public Server(Properties properties) {
         this.properties = properties;
@@ -25,12 +32,12 @@ public class Server {
 
     public void serverStartup() {
         try {
-            DBConnector dbConnector = new DBConnector(properties);
+            dbConnector = new DBConnector(properties);
             dbConnector.createConnection();
-            DBCollectionHandler dbCollectionHandler = new DBCollectionHandler(dbConnector.getConnection());
+            dbCollectionHandler = new DBCollectionHandler(dbConnector.getConnection());
             Movies movies = new Movies();
             movies.setMoviesList(dbCollectionHandler.getAllMovies());
-            DBUserHandler dbUserHandler = new DBUserHandler(dbConnector.getConnection());
+            dbUserHandler = new DBUserHandler(dbConnector.getConnection());
             CollectionAnalyzer collectionAnalyzer = new CollectionAnalyzer(movies, dbCollectionHandler);
             CommandDistributor commandDistributor = new CommandDistributor();
             commandDistributor.addExecutor("CollectionAnalyzer", collectionAnalyzer);
@@ -38,9 +45,15 @@ public class Server {
             commandDistributor.addExecutor("DBUserHandler", dbUserHandler);
 
             ServerReader serverReader = new ServerReader(commandDistributor);
-            ServerSerializer serverSerializer = new ServerSerializer(commandDistributor);
+            serverSerializer = new ServerSerializer(commandDistributor);
 
-            Thread t1 = new Thread(serverReader::readConsole);
+            Thread t1 = new Thread(() -> {
+                try {
+                    serverReader.readConsole(this);
+                } catch (SQLException | IOException e) {
+                    throw new RuntimeException(e);
+                }
+            });
             Thread t2 = new Thread(() -> {
                 while (true) {
                     serverSerializer.waitForRequest();
@@ -51,6 +64,8 @@ public class Server {
             t2.start();
             t1.start();
 
+        } catch (PSQLException e) {
+            System.out.println("Проблема с соответствием столбцов в БД и в памяти");
         } catch (Exception | ExceptionInInitializerError e) {
             System.out.println(e);
         }
@@ -69,10 +84,18 @@ public class Server {
                                     throw new RuntimeException(e);
                                 }
                             });
-                            System.out.println("loop ends 1 stage");
                         }
                     }
             );
         }
+    }
+
+    public void closeAllAndExit() throws SQLException, IOException {
+        serverSerializer.setStage("exit");
+        serverSerializer.close();
+        dbCollectionHandler.close();
+        dbUserHandler.close();
+        dbConnector.close();
+        System.exit(0);
     }
 }

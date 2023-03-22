@@ -8,9 +8,7 @@ import java.sql.SQLException;
 import java.util.*;
 
 /**
- * Console App Component, executing most "backend" actions, related to the collection.
- * His methods called by Receiver.
- * It manages collection movies, as every functional components.
+ * Main Command Executor. It's commands invoke by CommandDistributor. It invokes DB commands and executes actions with collection in memory
  */
 
 public class CollectionAnalyzer {

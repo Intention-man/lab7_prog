@@ -2,7 +2,6 @@ package functional_classes.commands_executors;
 
 import auxiliary_classes.CommandMessage;
 import exceptions.AuthorizationException;
-import functional_classes.database.DBConnector;
 import functional_classes.database.DBUserHandler;
 
 import java.lang.reflect.InvocationTargetException;
@@ -10,6 +9,12 @@ import java.lang.reflect.Method;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Objects;
+
+
+/**
+ * Get CommandMessage from ServerSerializer and execute commands by reflection API, calling executed classes
+ */
+
 
 public class CommandDistributor {
 

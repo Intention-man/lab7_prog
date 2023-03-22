@@ -20,24 +20,26 @@ public class DBCollectionHandler {
     }
 
     public boolean isMovieExist(String name) throws SQLException {
-        PreparedStatement statement = connection.prepareStatement("SELECT COUNT(*) FROM movies WHERE name=(?)");
-        statement.setString(1, name);
-        return ContainerCommonParts.existenceQuery(statement);
+        synchronized (this) {
+            PreparedStatement statement = connection.prepareStatement("SELECT COUNT(*) FROM movies WHERE name=(?)");
+            statement.setString(1, name);
+            return ContainerCommonParts.existenceQuery(statement);
+        }
     }
 
-    public boolean isMovieExist(int id) throws SQLException {
+    public synchronized boolean isMovieExist(int id) throws SQLException {
         PreparedStatement statement = connection.prepareStatement("SELECT COUNT(*) FROM movies WHERE id=(?)");
         statement.setInt(1, id);
         return ContainerCommonParts.existenceQuery(statement);
     }
 
-    public void createMoviesTableIfNotExist() throws SQLException {
+    public synchronized void createMoviesTableIfNotExist() throws SQLException {
         Statement statement = connection.createStatement();
         statement.execute("CREATE table IF NOT EXISTS movies (id SERIAL PRIMARY KEY, name VARCHAR(255) not null unique CHECK (trim(name) <> ''), coord_x integer not null CHECK (coord_x > -319), coord_y int, creation_date TIMESTAMP DEFAULT now(), oscars_count bigint CHECK (oscars_count > 0), length bigint CHECK (length > 0), genre VARCHAR(255), mpaa_rating VARCHAR(255), operator_name VARCHAR(255) not null CHECK (trim(operator_name) <> ''), passport_id VARCHAR(255) not null CHECK (length(passport_id) > 8) CHECK (trim(passport_id) <> ''), nationality VARCHAR(255), location_x bigint, location_y bigint, location_z float, creator VARCHAR(255))");
         statement.close();
     }
 
-    public String addMovieToBD(Movie movie, String login) throws SQLException {
+    public synchronized String addMovieToBD(Movie movie, String login) throws SQLException {
         if (isMovieExist(movie.getName())) {
             return "Фильм с таким названием уже существует";
         } else {
@@ -55,7 +57,7 @@ public class DBCollectionHandler {
         }
     }
 
-    public boolean updateMovie(Movie movie) throws SQLException {
+    public synchronized boolean updateMovie(Movie movie) throws SQLException {
         PreparedStatement statement = connection.prepareStatement(
                 "UPDATE movies SET name=?, coord_x=?, coord_y=?, oscars_count=?, length=?, genre=?, mpaa_rating=?, operator_name=?, passport_id=?, nationality=?, location_x=?, location_y=?, location_z=? WHERE id=?"
         );
@@ -64,21 +66,21 @@ public class DBCollectionHandler {
         return (statement.executeUpdate() == 1);
     }
 
-    public boolean removeMovie(int id) throws SQLException {
+    public synchronized boolean removeMovie(int id) throws SQLException {
         PreparedStatement statement = connection.prepareStatement("DELETE FROM movies WHERE id = ?");
         statement.setInt(1, id);
         statement.executeUpdate();
         return !isMovieExist(id);
     }
 
-    public boolean clearCollection(String login) throws SQLException {
-        PreparedStatement statement = connection.prepareStatement("DELETE FROM movies WHERE login=?");
+    public synchronized boolean clearCollection(String login) throws SQLException {
+        PreparedStatement statement = connection.prepareStatement("DELETE FROM movies WHERE creator=?");
         statement.setString(1, login);
         statement.executeUpdate();
-        return (getMoviesCount() == 0);
+        return (getMoviesCountByThisCreator(login) == 0);
     }
 
-    public HashSet<Movie> getAllMovies() throws SQLException {
+    public synchronized HashSet<Movie> getAllMovies() throws SQLException {
         HashSet<Movie> moviesList = new HashSet<>();
         PreparedStatement statement = connection.prepareStatement("SELECT * FROM movies");
         ResultSet resultSet = statement.executeQuery();
@@ -104,8 +106,18 @@ public class DBCollectionHandler {
     }
 
 
-    public int getMoviesCount() throws SQLException {
+    public synchronized int getMoviesCount() throws SQLException {
         PreparedStatement statement = connection.prepareStatement("SELECT COUNT(*) FROM movies");
         return ContainerCommonParts.countQuery(statement);
+    }
+
+    public synchronized int getMoviesCountByThisCreator(String login) throws SQLException {
+        PreparedStatement statement = connection.prepareStatement("SELECT COUNT(*) FROM movies WHERE creator=?");
+        statement.setString(1, login);
+        return ContainerCommonParts.countQuery(statement);
+    }
+
+    public synchronized void close() throws SQLException {
+        connection.close();
     }
 }

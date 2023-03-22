@@ -14,26 +14,26 @@ public class DBUserHandler {
         createUserTableIfNotExist();
     }
 
-    public boolean isLoginOccupied(String login) throws SQLException {;
+    public synchronized boolean isLoginOccupied(String login) throws SQLException {;
         PreparedStatement statement = connection.prepareStatement("SELECT COUNT(*) FROM users WHERE login=(?)");
         statement.setString(1, login);
         return ContainerCommonParts.existenceQuery(statement);
     }
 
-    public boolean isUserExists(String login, String password) throws SQLException {;
+    public synchronized boolean isUserExists(String login, String password) throws SQLException {;
         PreparedStatement statement = connection.prepareStatement("SELECT COUNT(*) FROM users WHERE login=(?) AND password=(?)");
         statement.setString(1, login);
         statement.setString(2, getMD5Hash(password));
         return ContainerCommonParts.existenceQuery(statement);
     }
 
-    public void createUserTableIfNotExist() throws SQLException {
+    public synchronized void createUserTableIfNotExist() throws SQLException {
         Statement statement = connection.createStatement();
         statement.execute("CREATE table IF NOT EXISTS users (id SERIAL PRIMARY KEY, login VARCHAR(255) unique, password VARCHAR(255))");
         statement.close();
     }
     
-    public String registration(String login, String password) throws SQLException {
+    public synchronized String registration(String login, String password) throws SQLException {
         if (isLoginOccupied(login)){
             return "Пользователь с таким login уже существует. Если это вы, то введите команду с верным логином и паролем, иначе придумайте другой логин, чтобы зарегистриоваться";
         }
@@ -49,7 +49,7 @@ public class DBUserHandler {
         }
     }
 
-    public String getMD5Hash(String password) {
+    public synchronized String getMD5Hash(String password) {
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");
             byte[] hashInBytes = md.digest(password.getBytes());
@@ -64,7 +64,8 @@ public class DBUserHandler {
         return null;
     }
 
-    public void close() throws SQLException {
+    public synchronized void close() throws SQLException {
         stat.close();
+        connection.close();
     }
 }

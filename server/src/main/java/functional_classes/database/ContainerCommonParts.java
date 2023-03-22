@@ -19,11 +19,11 @@ public class ContainerCommonParts {
         ResultSet resultSet = statement.executeQuery();
         resultSet.next();
         int count = resultSet.getInt(1);
-        if (count > 0) {
-            System.out.println("Запись существует");
-        } else {
-            System.out.println("Запись не существует");
-        }
+//        if (count > 0) {
+//            System.out.println("Запись существует");
+//        } else {
+//            System.out.println("Запись не существует");
+//        }
         resultSet.close();
         statement.close();
         return (count > 0);

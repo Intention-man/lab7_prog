@@ -11,9 +11,7 @@ import java.nio.file.Paths;
 import java.util.Scanner;
 
 /**
- *    Console App Component, working with files: read, write and execute their.
- *    His methods called by Receiver.
- *    It manages collection movies, as every functional components.
+ *    Deprecated class (early, it worked with collection from xml file)
  * */
 
 

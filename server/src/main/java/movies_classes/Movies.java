@@ -42,7 +42,6 @@ public class Movies implements Serializable {
             sortedList = moviesList.stream()
                     .sorted(Objects.equals(field, "id") ? Comparator.comparing(Movie::getId) : Comparator.comparing(Movie::getName))
                     .collect(Collectors.toList());
-
             return sortedList;
         }
     }

@@ -2,9 +2,12 @@ package functional_classes.threads;
 
 
 import auxiliary_classes.CommandMessage;
+import functional_classes.Server;
 import functional_classes.commands_executors.CommandDistributor;
 import movies_classes.Movies;
 
+import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class ServerReader {
@@ -16,19 +19,13 @@ public class ServerReader {
         this.commandDistributor = commandDistributor;
     }
 
-    public void readConsole() {
-//        System.out.println("readConsole " + Thread.currentThread());
-        if (chosenScanner.hasNextLine()) {
+    public void readConsole(Server server) throws SQLException, IOException {
+        while (chosenScanner.hasNextLine()) {
             String clientInput = chosenScanner.nextLine().trim();
             String[] splitedClientInput = clientInput.replaceAll("\\s+", " ").split(" ");
             String executedCommand = splitedClientInput[0];
-            String login = splitedClientInput[1];
-            String password = splitedClientInput[2];
             if (executedCommand.equals("exit")) {
-                Movies result = commandDistributor.execution(new CommandMessage<>("CollectionAnalyzer", "getMovies", null, login, password));
-//                boolean isSaved = commandDistributor.execution(new CommandMessage<>("FileWorker", "save", result, login, password));
-//                System.out.println(isSaved ? "Коллекция успешно сохранена!" : "Что-то пошло не так, коллекция не сохранена...");
-                System.exit(0);
+                server.closeAllAndExit();
             }
         }
     }

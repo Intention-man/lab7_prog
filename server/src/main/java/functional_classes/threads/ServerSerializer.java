@@ -38,25 +38,23 @@ public class ServerSerializer {
     public void waitForRequest() {
         try {
             while (Objects.equals(stage, "get")) {
-                System.out.println("in waitForRequest");
-//                datagramChannel.configureBlocking(false);
                 socketAddressToGet = datagramChannel.receive(ByteBuffer.wrap(byteCommandMessage));
                 if (socketAddressToGet != null) {
-                    System.out.println("got message");
                     ByteArrayInputStream bis = new ByteArrayInputStream(byteCommandMessage);
                     ObjectInputStream ois = new ObjectInputStream(bis);
                     ArrayList<Object> deserializedData = (ArrayList<Object>) ois.readObject();
                     deserializedCommandMessage = (CommandMessage) deserializedData.get(0);
                     clientPort = (Integer) deserializedData.get(1);
-                    System.out.println("deserializedCommandMessage: " + deserializedCommandMessage);
                     stage = "execute";
                 }
             }
         }
         catch (ClassCastException e) {
             System.out.println("Неверный тип полученных данных. Убедитесь, что сообщение с клиента приводится к классу CommandMessage");
-        }catch (ClassNotFoundException | IOException e) {
-            throw new RuntimeException(e);
+        }catch (IOException e) {
+            System.out.println("Прерван поток ожидания/получения данных от клиента");
+        } catch (ClassNotFoundException e) {
+            System.out.println("Команда, передаваемая пользователем не дошла(");
         }
     }
 
@@ -85,7 +83,11 @@ public class ServerSerializer {
         return stage;
     }
 
-    public void close() throws IOException {
+    public void setStage(String stage) {
+        this.stage = stage;
+    }
+
+    public synchronized void close() throws IOException {
         datagramChannel.close();
     }
 }

@@ -4,28 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="61974b51-3d42-4871-9961-ec533b1954c2" name="Changes" comment="Most necessary have done">
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/exceptions/AuthorizationException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/exceptions/MessageFormatException.java" afterDir="false" />
+    <list default="true" id="61974b51-3d42-4871-9961-ec533b1954c2" name="Changes" comment="Finished all necessary task points. Maybe some addition updates will be soon">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/ClientMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ClientMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/functional_classes/ClientManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/functional_classes/ClientManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/functional_classes/ClientSerializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/functional_classes/ClientSerializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/others/script1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/others/script1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/others/script2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/others/script2.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/auxiliary_classes/CommandMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/auxiliary_classes/CommandMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/functional_classes/Writer.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/functional_classes/Writer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/functional_classes/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/functional_classes/Server.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/functional_classes/commands_executors/CollectionAnalyzer.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/functional_classes/commands_executors/CollectionAnalyzer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/functional_classes/commands_executors/CommandDistributor.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/functional_classes/commands_executors/CommandDistributor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/functional_classes/commands_executors/FileWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/functional_classes/commands_executors/FileWorker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/functional_classes/database/ContainerCommonParts.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/functional_classes/database/ContainerCommonParts.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/functional_classes/database/DBCollectionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/functional_classes/database/DBCollectionHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/functional_classes/database/DBConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/functional_classes/database/DBConnector.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/functional_classes/database/DBUserHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/functional_classes/database/DBUserHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/functional_classes/threads/ServerReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/functional_classes/threads/ServerReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/functional_classes/threads/ServerSerializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/functional_classes/threads/ServerSerializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/functional_classes/threads/Synchronizer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/movies_classes/Coordinates.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/movies_classes/Coordinates.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/movies_classes/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/movies_classes/Location.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/movies_classes/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/movies_classes/Movie.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/movies_classes/Movies.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/movies_classes/Movies.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/movies_classes/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/movies_classes/Person.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +61,7 @@
     &quot;ToolWindowRun.ShowToolbar&quot;: &quot;false&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;19&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Михаил/Documents/ИТ/Актуальные лабы/lab7_prog_copy&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Михаил/Documents/ИТ/Актуальные лабы/lab7_prog&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
@@ -92,17 +88,23 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ClientMain">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="ClientMain" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
+      <envs>
+        <env name="url" value="&quot;jdbc:postgresql://localhost:5000/postgres&quot;" />
+        <env name="user" value="&quot;postgres&quot;" />
+        <env name="password" value="&quot;23aitip22DZ&quot;" />
+      </envs>
       <option name="MAIN_CLASS_NAME" value="ClientMain" />
       <module name="client" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="server" />
+      <module name="Server" />
+      <option name="PROGRAM_PARAMETERS" value="&quot;jdbc:postgresql://localhost:5000/postgres&quot; &quot;postgres&quot; &quot;23aitip22DZ&quot;" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -115,14 +117,13 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.ClientMain" />
       <item itemvalue="Application.Main" />
+      <item itemvalue="Application.ClientMain" />
       <item itemvalue="Application.Printer" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.ClientMain" />
-        <item itemvalue="Application.Main" />
         <item itemvalue="Application.Printer" />
       </list>
     </recent_temporary>
@@ -160,7 +161,10 @@
       <workItem from="1678899058935" duration="7748000" />
       <workItem from="1678949000701" duration="2046000" />
       <workItem from="1678951191596" duration="802000" />
-      <workItem from="1678952690271" duration="2200000" />
+      <workItem from="1678952690271" duration="3085000" />
+      <workItem from="1679224256475" duration="7845000" />
+      <workItem from="1679471673169" duration="2210000" />
+      <workItem from="1679495221010" duration="2874000" />
     </task>
     <task id="LOCAL-00001" summary="Added JDBC driver dependency">
       <created>1678457588345</created>
@@ -190,7 +194,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678867226488</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Finished all necessary task points. Maybe some addition updates will be soon">
+      <created>1678954987756</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1678954987756</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -211,7 +222,8 @@
     <MESSAGE value="Added JDBC driver dependency" />
     <MESSAGE value="Most of necessary have done" />
     <MESSAGE value="Most necessary have done" />
-    <option name="LAST_COMMIT_MESSAGE" value="Most necessary have done" />
+    <MESSAGE value="Finished all necessary task points. Maybe some addition updates will be soon" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished all necessary task points. Maybe some addition updates will be soon" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

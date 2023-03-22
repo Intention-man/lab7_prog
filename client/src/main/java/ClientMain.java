@@ -10,6 +10,7 @@ import java.util.Scanner;
 
 public class ClientMain {
     public static void main(String[] args) {
+        String nextLine;
         String executedCommand;
         try {
             // initialization
@@ -27,7 +28,8 @@ public class ClientMain {
                 // execution
 
                 writer.suggestNewAction();
-                executedCommand = reader.readNextLine().trim();
+                nextLine = reader.readNextLine();
+                executedCommand = (nextLine != null) ? nextLine.trim() : null;
                 while (!Objects.equals(executedCommand, "exit")) {
                     clientManager.startNewAction(executedCommand);
                     writer.suggestNewAction();

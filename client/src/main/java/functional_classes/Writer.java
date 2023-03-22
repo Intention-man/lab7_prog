@@ -28,12 +28,11 @@ public class Writer {
         commandList.put("count_by_oscars_count oscarsCount", "вывести количество элементов, значение поля oscarsCount которых равно заданному");}
 
     public void suggestNewAction() {
-        System.out.println("Введите команду, ваш логин и пароль через пробелы. Чтобы узнать перечень доступных команд введите help");
+        System.out.println("Введите команду. Чтобы узнать перечень доступных команд введите help");
     }
 
     public <T> void printResponse(ResponseMessage response) {
         if (response.getTypeName().equals("java.util.ArrayList")) {
-//            Stream<String> streamOfArray = Arrays.stream((String[]) response.getResponseData());
             ((List<String>) response.getResponseData()).stream()
                     .map(String::strip)
                     .forEach(System.out::println);

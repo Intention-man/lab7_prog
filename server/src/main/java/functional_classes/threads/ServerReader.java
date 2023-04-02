@@ -1,10 +1,8 @@
 package functional_classes.threads;
 
 
-import auxiliary_classes.CommandMessage;
 import functional_classes.Server;
 import functional_classes.commands_executors.CommandDistributor;
-import movies_classes.Movies;
 
 import java.io.IOException;
 import java.sql.SQLException;
